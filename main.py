@@ -47,7 +47,7 @@ class Map:
         response = requests.get(map_api_server, params=map_params)
         im = BytesIO(response.content)
         self.map = im
-        return self.map
+        return self.map.getvalue()
 
     def show_map(self):
         self.update_map()
@@ -63,3 +63,6 @@ class Map:
         self.loc = location
         if auto_update:
             self.update_map()
+
+
+
